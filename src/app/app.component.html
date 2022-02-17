@@ -1,0 +1,25 @@
+<h1>Wordle Anaylsis</h1>
+
+<p>Current Processing Level: {{currentSegmentProcessingLevel}}</p>
+<p>Current Level Answer Segments to Process: {{answerSegmentsToProcess.length}}</p>
+<p>Next Level Answer Segments to Process: {{nextLevelAnswerSegmentsToProcess.length}}</p>
+
+<div>{{baseAnswerSegment?.bestAnalysis?.guess}}</div>
+<ng-container *ngFor="let guess2Segment of baseAnswerSegment?.bestAnalysis?.answerSegments">
+  <div>*{{guess2Segment?.squares}} ({{guess2Segment?.answers?.length}} {{guess2Segment?.answers | json}}) {{guess2Segment?.bestAnalysis?.guess}}</div>
+  <ng-container *ngFor="let guess3Segment of guess2Segment?.bestAnalysis?.answerSegments">
+    <div>**{{guess3Segment?.squares}} ({{guess3Segment?.answers?.length}} {{guess3Segment?.answers | json}}) {{guess3Segment?.bestAnalysis?.guess}}</div>
+    <ng-container *ngFor="let guess4Segment of guess3Segment?.bestAnalysis?.answerSegments">
+      <div>***{{guess4Segment?.squares}} ({{guess4Segment?.answers?.length}} {{guess4Segment?.answers | json}}) {{guess4Segment?.bestAnalysis?.guess}}</div>
+      <ng-container *ngFor="let guess5Segment of guess4Segment?.bestAnalysis?.answerSegments">
+        <div>****{{guess5Segment?.squares}} ({{guess5Segment?.answers?.length}} {{guess5Segment?.answers | json}}) {{guess5Segment?.bestAnalysis?.guess}}</div>
+        <ng-container *ngFor="let guess6Segment of guess5Segment?.bestAnalysis?.answerSegments">
+          <div>*****{{guess6Segment?.squares}} ({{guess6Segment?.answers?.length}} {{guess6Segment?.answers | json}}) {{guess6Segment?.bestAnalysis?.guess}}</div>
+          <ng-container *ngFor="let guess7Segment of guess6Segment?.bestAnalysis?.answerSegments">
+            <div>*****!{{guess7Segment?.squares}} ({{guess7Segment?.answers?.length}} {{guess7Segment?.answers | json}}) {{guess7Segment?.bestAnalysis?.guess}}</div>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</ng-container> 
